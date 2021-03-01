@@ -2,7 +2,19 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import NoSuchElementException
 
-from parser.settings import link_to_site, next_page_xpath, for_links_selector, with_link_selector, link_attribute, title_selector, rating_selector, rating_attribute, track_list_selector, link_to_download_selector, link_to_download_attribute
+from parser.settings import (
+    link_to_site,
+    next_page_xpath,
+    for_links_selector,
+    with_link_selector,
+    link_attribute,
+    title_selector,
+    rating_selector,
+    rating_attribute,
+    track_list_selector,
+    link_to_download_selector,
+    link_to_download_attribute,
+)
 
 
 class Parser:
@@ -40,12 +52,16 @@ class Parser:
         self.__browser.get(link_to_site)
 
     def __get_links(self):
-        elements_for_links = self.__browser.find_elements_by_css_selector(for_links_selector)
+        elements_for_links = self.__browser.find_elements_by_css_selector(
+            for_links_selector
+        )
 
         elements_with_links = []
         for element_for_link in elements_for_links:
             try:
-                element_with_link = element_for_link.find_element_by_css_selector(with_link_selector)
+                element_with_link = element_for_link.find_element_by_css_selector(
+                    with_link_selector
+                )
                 elements_with_links.append(element_with_link)
             except NoSuchElementException:
                 continue
@@ -77,9 +93,15 @@ class Parser:
 
         info_about_album = {
             "title": self.__browser.find_element_by_css_selector(title_selector).text,
-            "rating": self.__browser.find_element_by_css_selector(rating_selector).get_attribute(rating_attribute),
-            "track_list": self.__browser.find_element_by_css_selector(track_list_selector).text,
-            "link_to_download": self.__browser.find_element_by_css_selector(link_to_download_selector).get_attribute(link_to_download_attribute),
+            "rating": self.__browser.find_element_by_css_selector(
+                rating_selector
+            ).get_attribute(rating_attribute),
+            "track_list": self.__browser.find_element_by_css_selector(
+                track_list_selector
+            ).text,
+            "link_to_download": self.__browser.find_element_by_css_selector(
+                link_to_download_selector
+            ).get_attribute(link_to_download_attribute),
         }
 
         return info_about_album
