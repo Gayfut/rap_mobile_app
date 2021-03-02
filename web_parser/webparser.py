@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import NoSuchElementException
 
-from parser.settings import (
+from web_parser.settings import (
     link_to_site,
     next_page_xpath,
     for_links_selector,
@@ -17,13 +17,13 @@ from parser.settings import (
 )
 
 
-class Parser:
+class WebParser:
     def __init__(self):
         self.__browser = webdriver.Firefox(options=self.__set_options())
 
     @staticmethod
     def __set_options():
-        """return headless options for parser driver"""
+        """return headless options for web_parser driver"""
         options = Options()
         options.add_argument("--headless")
 
