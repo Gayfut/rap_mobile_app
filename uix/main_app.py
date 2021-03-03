@@ -5,6 +5,7 @@ from kivy.resources import resource_add_path
 from settings import PATH_TO_IMAGES
 from uix.main_screen import MainScreen
 from uix.result_screen import ResultScreen
+from uix.fail_screen import FailScreen
 
 
 class MainApp(App):
@@ -13,7 +14,8 @@ class MainApp(App):
 
         screen_manager = ScreenManager()
 
-        screen_manager.add_widget(MainScreen(name='main'))
-        screen_manager.add_widget(ResultScreen(name='result'))
+        screen_manager.add_widget(MainScreen(name="main"))
+        screen_manager.add_widget(ResultScreen(name="result"))
+        screen_manager.add_widget(FailScreen(name="fail"))
 
         return screen_manager
