@@ -2,8 +2,10 @@ from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 from kivy.properties import StringProperty
 from requests import get
+from requests.exceptions import ConnectionError
 
 from tokens import site_url
+
 
 Builder.load_string(
     """
@@ -106,6 +108,9 @@ class ResultScreen(Screen):
 
     @staticmethod
     def __get_albums_list():
-        albums = get(site_url).json()
+        try:
+            albums = get(site_url).json()
+        except ConnectionError:
+            albums = [{'title': 'No title', 'rating': 'No rating', 'track_list': 'No tracks', 'link_to_download': 'No download link', 'link_to_album': 'No link to album'}]
 
         return albums

@@ -1,0 +1,4 @@
+requests==2.23.0
+Kivy==2.0.0
+Kivy-Garden==0.1.4
+Kivy-examples==2.0.0

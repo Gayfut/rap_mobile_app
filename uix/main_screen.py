@@ -4,7 +4,6 @@ from kivy.properties import ObjectProperty
 
 from tokens import password
 
-from uix.result_screen import ResultScreen
 
 Builder.load_string(
     """

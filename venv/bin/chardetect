@@ -1,4 +1,6 @@
-#!/home/baronggwp/PycharmProjects/kgeu_mobile/venv/bin/python
+#!/bin/sh
+'''exec' "/home/baronggwp/Python projects/rap_mobile_app/venv/bin/python" "$0" "$@"
+' '''
 # -*- coding: utf-8 -*-
 import re
 import sys
