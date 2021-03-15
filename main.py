@@ -1,3 +1,5 @@
+"""file for control app"""
+import kivy
 from uix.main_app import MainApp
 
 

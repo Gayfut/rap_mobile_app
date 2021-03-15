@@ -1,3 +1,4 @@
+"""file for control fail screen views"""
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 
@@ -33,4 +34,6 @@ Builder.load_string(
 
 
 class FailScreen(Screen):
+    """control fail screen"""
+
     pass

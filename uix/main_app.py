@@ -1,3 +1,4 @@
+"""file for control main app specification"""
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 from kivy.resources import resource_add_path
@@ -9,7 +10,10 @@ from uix.fail_screen import FailScreen
 
 
 class MainApp(App):
+    """control main app"""
+
     def build(self):
+        """create and config main app"""
         resource_add_path(PATH_TO_IMAGES)
 
         screen_manager = ScreenManager()

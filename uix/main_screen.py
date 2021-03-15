@@ -1,3 +1,4 @@
+"""file for control main screen views"""
 from kivy.lang import Builder
 from kivy.uix.screenmanager import Screen
 from kivy.properties import ObjectProperty
@@ -49,10 +50,12 @@ Builder.load_string(
 
 
 class MainScreen(Screen):
+    """control main screen"""
 
     entered_password = ObjectProperty()
 
     def on_press_handler(self):
+        """get password from input and choose what screen will be showing"""
         if self.entered_password.text == password:
             self.manager.current = "result"
         else:
